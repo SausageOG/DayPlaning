@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DayPlaning"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Planing Day" Height="462.676" Width="443.26" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="130"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Background="LightGray">
+            <WrapPanel HorizontalAlignment="Center" Margin="10">
+                <Label Content="Name of action:"/>
+                <TextBox Width="100" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+            </WrapPanel>
+            
+            <WrapPanel HorizontalAlignment="Center">
+                <Label Content="from:"/>
+                <TextBox Width="30" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+                <Label Content="to:"/>
+                <TextBox Width="30" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+            </WrapPanel>
+            <Label Content="*type(01 , 02 .... 09 ,10) " HorizontalAlignment="Center" Foreground="#939393"/>
+
+            <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Label Content="Color*"/>
+                <TextBox Width="60" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+                <TextBlock Width="20" Height="20"/>
+            </WrapPanel>
+            <Button Content="Random color" Width="85" Margin="0 , 0, 0, 20"/>
+
+
+            <Button Content="Add" FontSize="15" Width="100"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Background="LightCyan">
+            <Label Content="COOMING SOON CHART" HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Window>
