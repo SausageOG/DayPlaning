@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DayPlaning"
         xmlns:vm="clr-namespace:DayPlaning.ViewModels"
         mc:Ignorable="d"
-        Title="Planing Day" Height="494.623" Width="443.26" ResizeMode="NoResize">
+        Title="Planing Day" Height="537.586" Width="443.26" ResizeMode="NoResize">
     <Window.DataContext>
         <vm:MainWinVM/>
     </Window.DataContext>
@@ -16,31 +16,34 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <!-- Top zone(creating actions) -->
         <StackPanel Grid.Row="0" Background="LightGray">
             <WrapPanel HorizontalAlignment="Center" Margin="10">
                 <Label Content="Name of action:"/>
-                <TextBox Width="100" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+                <TextBox Text="{Binding Title}" Width="100" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
             </WrapPanel>
-            
+
             <WrapPanel HorizontalAlignment="Center">
                 <Label Content="from:"/>
-                <TextBox Width="30" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+                <TextBox Text="{Binding From}" Width="30" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
                 <Label Content="to:"/>
-                <TextBox Width="30" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+                <TextBox Text="{Binding To}" Width="30" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
             </WrapPanel>
-            <Label Content="*type(01 , 02 .... 09 ,10) " HorizontalAlignment="Center" Foreground="#939393"/>
+            <Label Content="*type: 1 , 2 .... 9 ,10(not 01, 02 ...) " HorizontalAlignment="Center" Foreground="#939393"/>
 
             <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,0">
                 <Label Content="Color*"/>
-                <TextBox x:Name="ColorTextbox" Width="60" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+                <TextBox Text="{Binding Color}" x:Name="ColorTextbox" Width="60" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
                 <TextBlock Width="20" Height="20" Background="{Binding ElementName=ColorTextbox , Path=Text}"/>
             </WrapPanel>
             <Button Content="Random color" Width="85" Margin="0 , 0, 0, 20"/>
 
 
-            <Button Content="Add" FontSize="15" Width="100"/>
+            <Button Command="{Binding AddCommand}" Content="Add" FontSize="15" Width="100"/>
+            <Button Content="Delete" FontSize="15" Width="100" Margin="5"/>
         </StackPanel>
 
+        <!-- Buttom side(list of actions , simple chart) -->
         <StackPanel Grid.Row="1" Background="LightCyan">
             <WrapPanel Margin="0,10,0,10" HorizontalAlignment="Center">
                 <Rectangle x:Name="r0" Width="30" Height="20" Fill="White"/>
@@ -56,12 +59,12 @@
 
             </WrapPanel>
 
-            <ListBox Width="100" Height="100" Margin="0 , 5, 150 ,0" Background="LightCyan">
+            <ListBox ItemsSource="{Binding ActionsView}" Width="100" Height="142" Margin="0,5,200,0" Background="LightCyan">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Height="20" Width="20"/>
-                            <Label/>
+                            <TextBlock Height="20" Width="20" Background="{Binding Color}"/>
+                            <Label Content="{Binding Title}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

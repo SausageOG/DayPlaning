@@ -13,3 +13,8 @@ C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayP
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning.exe
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning.pdb
+C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\Prism.dll
+C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\Prism.pdb
+C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\Prism.xml
+C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning.csproj.CopyComplete

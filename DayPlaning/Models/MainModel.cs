@@ -11,5 +11,14 @@ namespace DayPlaning.Models
         {
             Actions = new ReadOnlyObservableCollection<Action>(_actions);
         }
+
+        public void AddAction(Action action)
+        {
+            _actions.Add(action);
+        }
+        public void DeleteAction(Action action)
+        {
+            _actions.Remove(action);
+        }
     }
 }
