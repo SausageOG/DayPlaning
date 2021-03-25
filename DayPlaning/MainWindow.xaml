@@ -4,12 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DayPlaning"
+        xmlns:vm="clr-namespace:DayPlaning.ViewModels"
         mc:Ignorable="d"
-        Title="Planing Day" Height="462.676" Width="443.26" ResizeMode="NoResize">
+        Title="Planing Day" Height="494.623" Width="443.26" ResizeMode="NoResize">
+    <Window.DataContext>
+        <vm:MainWinVM/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>
-            <RowDefinition Height="130"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Background="LightGray">
@@ -28,8 +32,8 @@
 
             <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,0">
                 <Label Content="Color*"/>
-                <TextBox Width="60" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
-                <TextBlock Width="20" Height="20"/>
+                <TextBox x:Name="ColorTextbox" Width="60" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+                <TextBlock Width="20" Height="20" Background="{Binding ElementName=ColorTextbox , Path=Text}"/>
             </WrapPanel>
             <Button Content="Random color" Width="85" Margin="0 , 0, 0, 20"/>
 
@@ -38,7 +42,30 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Background="LightCyan">
-            <Label Content="COOMING SOON CHART" HorizontalAlignment="Center"/>
+            <WrapPanel Margin="0,10,0,10" HorizontalAlignment="Center">
+                <Rectangle x:Name="r0" Width="30" Height="20" Fill="White"/>
+                <Rectangle x:Name="r1" Width="30" Height="20" Fill="White"/>
+                <Rectangle x:Name="r2" Width="30" Height="20" Fill="White"/>
+                <Rectangle x:Name="r3" Width="30" Height="20" Fill="White"/>
+                <Rectangle x:Name="r4" Width="30" Height="20" Fill="White"/>
+                <Rectangle x:Name="r5" Width="30" Height="20" Fill="White"/>
+                <Rectangle x:Name="r6" Width="30" Height="20" Fill="White"/>
+                <Rectangle x:Name="r7" Width="30" Height="20" Fill="White"/>
+                <Rectangle x:Name="r8" Width="30" Height="20" Fill="White"/>
+                <Rectangle x:Name="r9" Width="30" Height="20" Fill="White"/>
+
+            </WrapPanel>
+
+            <ListBox Width="100" Height="100" Margin="0 , 5, 150 ,0" Background="LightCyan">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Height="20" Width="20"/>
+                            <Label/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
     </Grid>
 </Window>
