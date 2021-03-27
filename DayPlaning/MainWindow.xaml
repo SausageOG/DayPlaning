@@ -29,11 +29,11 @@
                 <Label Content="to:"/>
                 <TextBox Text="{Binding To}" Width="30" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
             </WrapPanel>
-            <Label Content="*type: 1 , 2 .... 9 ,10(not 01, 02 ...) " HorizontalAlignment="Center" Foreground="#939393"/>
+            <Label Content="*type: 1 , 2 ....(not 01, 02 ...) " HorizontalAlignment="Center" Foreground="#939393"/>
 
             <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,0">
                 <Label Content="Color: "/>
-                <TextBox Text="{Binding Color}" x:Name="ColorTextbox" Width="60" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+                <TextBox Text="{Binding Color}" x:Name="ColorTextbox" Width="70" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
                 <TextBlock Width="20" Height="20" Background="{Binding ElementName=ColorTextbox , Path=Text}"/>
             </WrapPanel>
             <Button Content="Random color" Width="85" Margin="0 , 0, 0, 20"/>
@@ -45,7 +45,7 @@
 
         <!-- Buttom side(list of actions , simple chart) -->
         <StackPanel Grid.Row="1" Background="LightCyan">
-            <WrapPanel Margin="0,10,0,10" HorizontalAlignment="Center">
+            <WrapPanel Margin="0,10,0,10" HorizontalAlignment="Center" >
                 <Rectangle x:Name="r0" Width="15" Height="20" Fill="{Binding ColorOfRs[0].Color}"/>
                 <Rectangle x:Name="r1" Width="15" Height="20" Fill="{Binding ColorOfRs[1].Color}"/>
                 <Rectangle x:Name="r2" Width="15" Height="20" Fill="{Binding ColorOfRs[2].Color}"/>
@@ -73,7 +73,7 @@
 
             </WrapPanel>
 
-            <ListBox ItemsSource="{Binding ActionsView}" Width="100" Height="142" Margin="0,5,200,0" Background="LightCyan">
+            <ListBox ItemsSource="{Binding ActionsView}" Width="150" Height="142" Margin="0,5,200,0" Background="LightCyan">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

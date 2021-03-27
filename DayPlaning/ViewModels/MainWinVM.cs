@@ -1,17 +1,57 @@
 ﻿using DayPlaning.Models;
 using Prism.Commands;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Action = DayPlaning.Models.Action;
 
 namespace DayPlaning.ViewModels
 {
-    class MainWinVM
+    class MainWinVM : INotifyPropertyChanged
     {
-        public string Title { get; set; }
-        public int From { get; set; }
-        public int To { get; set; }
-        public string Color { get; set; }
+        private string _title;
+        private string _from;
+        private string _to;
+        private string _color;
+
+
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
+                OnPropertyChanged();
+            }
+        }
+        public string From
+        {
+            get { return _from; }
+            set
+            {
+                _from = value;
+                OnPropertyChanged();
+            }
+        }
+        public string To
+        {
+            get { return _to; }
+            set
+            {
+                _to = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Color
+        {
+            get { return _color; }
+            set
+            {
+                _color = value;
+                OnPropertyChanged();
+            }
+        }
 
 
 
@@ -38,25 +78,68 @@ namespace DayPlaning.ViewModels
 
         private void Add()
         {
+            if (string.IsNullOrWhiteSpace(_title))
+            {
+                //TODO: some alert that one of field is null or contains only whitespaces
+            }
+
+
             Action newAction = new Action();
             newAction.Title = Title;
             newAction.From = From;
             newAction.To = To;
             newAction.Color = Color;
 
+
+
+
             model.AddAction(newAction);
 
             Coloring(newAction);
+
+            ClearFields();
         }
 
         private void Coloring(Action action)
         {
             string color = action.Color;
+            int from = Int32.Parse(action.From);
+            int to = Int32.Parse(action.To);
 
-            for (int i = action.From; i != action.To; i++)
+            if (from < to)
             {
-                colorsOfR[i].Color = color;
+                for (int i = from; i != to; i++)
+                {
+                    colorsOfR[i].Color = color;
+                }
             }
+            else if (to < from)
+            {
+                for (int i = to; i != -1; i--)
+                {
+                    colorsOfR[i].Color = color;
+                }
+                for (int i = from; i != 24; i++)
+                {
+                    colorsOfR[i].Color = color;
+                }
+            }
+
+
+
+        }
+
+        private void CheckForNullOrWiteSpace(string title, string from, string to, string color)
+        {
+
+        }
+
+        private void ClearFields()
+        {
+            Title = "";
+            From = "";
+            To = "";
+            Color = "";
         }
 
         private void InitOfColorR()
@@ -112,10 +195,17 @@ namespace DayPlaning.ViewModels
             colorsOfR.Add(colorOfR24);
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
     }
     class ColorOfR : INotifyPropertyChanged
     {
-        private string color;
+        private string color = "White";
         public string Color
         {
             get { return color; }
@@ -132,5 +222,7 @@ namespace DayPlaning.ViewModels
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
+
+
     }
 }
