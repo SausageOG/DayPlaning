@@ -36,11 +36,11 @@
                 <TextBox Text="{Binding Color}" x:Name="ColorTextbox" Width="70" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="5"/>
                 <TextBlock Width="20" Height="20" Background="{Binding ElementName=ColorTextbox , Path=Text}"/>
             </WrapPanel>
-            <Button Content="Random color" Width="85" Margin="0 , 0, 0, 20"/>
+            <Button Command="{Binding RandomColorCommand}" Content="Random color" Width="85" Margin="0 , 0, 0, 20"/>
 
 
             <Button Command="{Binding AddCommand}" Content="Add" FontSize="15" Width="100"/>
-            <Button Content="Delete" FontSize="15" Width="100" Margin="5"/>
+            <Button Command="{Binding DeleteCommand}" CommandParameter="{Binding ElementName=ListOfActions , Path=SelectedItem}" Content="Delete" FontSize="15" Width="100" Margin="5"/>
         </StackPanel>
 
         <!-- Buttom side(list of actions , simple chart) -->
@@ -73,7 +73,7 @@
 
             </WrapPanel>
 
-            <ListBox ItemsSource="{Binding ActionsView}" Width="150" Height="142" Margin="0,5,200,0" Background="LightCyan">
+            <ListBox x:Name="ListOfActions" ItemsSource="{Binding ActionsView}" Width="150" Height="142" Margin="0,5,200,0" Background="LightCyan">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

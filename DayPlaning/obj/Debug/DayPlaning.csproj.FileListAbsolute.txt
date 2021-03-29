@@ -2,11 +2,9 @@ C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\DayP
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\DayPlaning.exe
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\DayPlaning.pdb
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning.csprojAssemblyReference.cache
-C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\MainWindow.g.cs
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\App.g.cs
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning_MarkupCompile.cache
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning_MarkupCompile.lref
-C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\MainWindow.baml
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning.g.resources
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning.Properties.Resources.resources
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning.csproj.GenerateResource.cache
@@ -18,3 +16,7 @@ C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\Pris
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\Prism.xml
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning.csproj.CopyComplete
+C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\Views\AlertW.g.cs
+C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\Views\MainWindow.g.cs
+C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\Views\AlertW.baml
+C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\Views\MainWindow.baml

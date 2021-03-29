@@ -1,8 +1,10 @@
 ﻿using DayPlaning.Models;
+using DayPlaning.Views;
 using Prism.Commands;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Action = DayPlaning.Models.Action;
 
@@ -54,21 +56,28 @@ namespace DayPlaning.ViewModels
         }
 
 
-
+        static Random random = new Random();
 
         MainModel model;
 
+
         private ObservableCollection<ColorOfR> colorsOfR;
         public ObservableCollection<ColorOfR> ColorOfRs => colorsOfR;
+
+
         public ReadOnlyObservableCollection<Action> ActionsView => model.Actions;
 
         public DelegateCommand AddCommand { get; private set; }
+        public DelegateCommand<Action> DeleteCommand { get; private set; }
+        public DelegateCommand RandomColorCommand { get; private set; }
 
         public MainWinVM()
         {
             model = new MainModel();
 
             AddCommand = new DelegateCommand(Add);
+            DeleteCommand = new DelegateCommand<Action>(Delete);
+            RandomColorCommand = new DelegateCommand(RandomColor);
 
 
             colorsOfR = new ObservableCollection<ColorOfR>();
@@ -78,32 +87,51 @@ namespace DayPlaning.ViewModels
 
         private void Add()
         {
-            if (string.IsNullOrWhiteSpace(_title))
+            if (string.IsNullOrWhiteSpace(_title) || string.IsNullOrWhiteSpace(_from) || string.IsNullOrWhiteSpace(_to) || string.IsNullOrWhiteSpace(_color))
             {
-                //TODO: some alert that one of field is null or contains only whitespaces
+                AlertW alert = new AlertW(AlertW.Variants.FieldsAreEmpty);
+                alert.Show();
+
+                ClearFields();
+            }
+            else
+            {
+
+                Action newAction = new Action();
+                newAction.Title = Title;
+                newAction.From = From;
+                newAction.To = To;
+                newAction.Color = Color;
+
+
+                model.AddAction(newAction);
+
+                Coloring(newAction);
+
+                ClearFields();
             }
 
+        }
 
-            Action newAction = new Action();
-            newAction.Title = Title;
-            newAction.From = From;
-            newAction.To = To;
-            newAction.Color = Color;
+        private void Delete(Action action)
+        {
+            if (action != null)
+            {
+                model.DeleteAction(action);
+            }
+        }
 
-
-
-
-            model.AddAction(newAction);
-
-            Coloring(newAction);
-
-            ClearFields();
+        private void RandomColor()
+        {
+            string hex = GetRandomHexNumber(6);
+            Color = "#" + hex;
         }
 
         private void Coloring(Action action)
         {
             string color = action.Color;
-            int from = Int32.Parse(action.From);
+            int from;
+            TryParse(action.From, out from);
             int to = Int32.Parse(action.To);
 
             if (from < to)
@@ -124,14 +152,30 @@ namespace DayPlaning.ViewModels
                     colorsOfR[i].Color = color;
                 }
             }
-
-
-
         }
 
-        private void CheckForNullOrWiteSpace(string title, string from, string to, string color)
+        private void TryParse(string inValue, out int outValue)
         {
+            outValue = 0;
+            try
+            {
+                outValue = Int32.Parse(inValue);
+            }
+            catch (Exception)
+            {
+                AlertW alert = new AlertW(AlertW.Variants.NoSuchDigits);
+                alert.Show();
+            }
+        }
 
+        private string GetRandomHexNumber(int digits)
+        {
+            byte[] buffer = new byte[digits / 2];
+            random.NextBytes(buffer);
+            string result = String.Concat(buffer.Select(x => x.ToString("X2")).ToArray());
+            if (digits % 2 == 0)
+                return result;
+            return result + random.Next(16).ToString("X");
         }
 
         private void ClearFields()
