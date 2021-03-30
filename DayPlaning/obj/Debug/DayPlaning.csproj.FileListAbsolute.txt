@@ -1,7 +1,6 @@
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\DayPlaning.exe.config
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\DayPlaning.exe
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\bin\Debug\DayPlaning.pdb
-C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning.csprojAssemblyReference.cache
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\App.g.cs
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning_MarkupCompile.cache
 C:\Users\User\Desktop\CODE\C#\WPF\InProcess\DayPlaning\DayPlaning\obj\Debug\DayPlaning_MarkupCompile.lref
